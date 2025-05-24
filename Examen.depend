@@ -1,0 +1,68 @@
+# depslib dependency file v1.0
+1584205420 source:c:\users\acer\onedrive\bureau\cours s4\c++\examen\main.cpp
+	<iostream>
+
+1748112994 source:c:\users\acer\onedrive\bureau\cours s4\c++\examen\src\bulletin.cpp
+	"Bulletin.h"
+
+1748112994 c:\users\acer\onedrive\bureau\cours s4\c++\examen\include\bulletin.h
+
+1748112981 source:c:\users\acer\onedrive\bureau\cours s4\c++\examen\src\certificat.cpp
+	"Certificat.h"
+
+1748112981 c:\users\acer\onedrive\bureau\cours s4\c++\examen\include\certificat.h
+
+1748115382 source:c:\users\acer\onedrive\bureau\cours s4\c++\examen\src\classe.cpp
+	"Classe.h"
+
+1748114408 c:\users\acer\onedrive\bureau\cours s4\c++\examen\include\classe.h
+	<string>
+
+1748115453 source:c:\users\acer\onedrive\bureau\cours s4\c++\examen\src\enseignement.cpp
+	"Enseignement.h"
+
+1748114656 c:\users\acer\onedrive\bureau\cours s4\c++\examen\include\enseignement.h
+	<string>
+	"Classe.h"
+	"Matiere.h"
+	"Professeur.h"
+
+1748115292 source:c:\users\acer\onedrive\bureau\cours s4\c++\examen\src\etudiant.cpp
+	"Etudiant.h"
+
+1748114325 c:\users\acer\onedrive\bureau\cours s4\c++\examen\include\etudiant.h
+	<string>
+
+1748113018 source:c:\users\acer\onedrive\bureau\cours s4\c++\examen\src\evaluation.cpp
+	"Evaluation.h"
+
+1748115003 c:\users\acer\onedrive\bureau\cours s4\c++\examen\include\evaluation.h
+	<string>
+	"Etudiant.h"
+	"Matiere.h"
+
+1748115352 source:c:\users\acer\onedrive\bureau\cours s4\c++\examen\src\matiere.cpp
+	"Matiere.h"
+
+1748114369 c:\users\acer\onedrive\bureau\cours s4\c++\examen\include\matiere.h
+	<string>
+
+1748115494 source:c:\users\acer\onedrive\bureau\cours s4\c++\examen\src\module.cpp
+	"Module.h"
+
+1748114967 c:\users\acer\onedrive\bureau\cours s4\c++\examen\include\module.h
+	"Matiere.h"
+	"Classe.h"
+
+1748113084 source:c:\users\acer\onedrive\bureau\cours s4\c++\examen\src\proffesseur.cpp
+	"Proffesseur.h"
+
+1748114446 c:\users\acer\onedrive\bureau\cours s4\c++\examen\include\proffesseur.h
+	<string>
+
+1748114585 c:\users\acer\onedrive\bureau\cours s4\c++\examen\include\professeur.h
+	<string>
+
+1748115409 source:c:\users\acer\onedrive\bureau\cours s4\c++\examen\src\professeur.cpp
+	"Professeur.h"
+
