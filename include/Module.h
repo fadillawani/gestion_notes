@@ -3,6 +3,7 @@
 
 #include "Matiere.h"
 #include "Classe.h"
+using namespace std;
 
 class Module {
 private:
@@ -19,6 +20,11 @@ public:
     Classe getClasse() const;
     int getDuree() const;
     float getCoefficient() const;
+
+    void setMatiere(Matiere);
+    void setClasse(Classe);
+    void setDuree(int);
+    void setCoefficient(float);
 };
 
 #endif

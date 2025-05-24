@@ -2,17 +2,22 @@
 #define CLASSE_H
 
 #include <string>
+using namespace std;
 
 class Classe {
 private:
-    std::string id;
-    std::string nom;
+    string id, nom, niveau;
 
 public:
     Classe();
-    Classe(std::string i, std::string n);
-    std::string getId() const;
-    std::string getNom() const;
+    Classe(string i, string n, string niveau);
+    string getId();
+    string getNom();
+    string getNiveau();
+
+    void setId(string);
+    void setNom(string);
+    void setNiveau(string);
 };
 
 #endif

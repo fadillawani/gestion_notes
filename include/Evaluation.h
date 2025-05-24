@@ -4,26 +4,33 @@
 #include <string>
 #include "Etudiant.h"
 #include "Matiere.h"
+using namespace std;
 
 class Evaluation {
 private:
     Etudiant etudiant;
     Matiere matiere;
-    std::string date;
-    std::string periode; // SEMESTRE 1 ou SEMESTRE 2
-    std::string type;    // EXAMEN ou DEVOIR
+    string date;
+    string periode; // SEMESTRE 1 ou SEMESTRE 2
+    string type;    // EXAMEN ou DEVOIR
     float note;
 
 public:
     Evaluation();
-    Evaluation(Etudiant e, Matiere m, std::string d, std::string per, std::string t, float n);
+    Evaluation(Etudiant e, Matiere m, string d, string per, string t, float n);
 
     Etudiant getEtudiant() const;
     Matiere getMatiere() const;
-    std::string getDate() const;
-    std::string getPeriode() const;
-    std::string getType() const;
+    string getDate() const;
+    string getPeriode() const;
+    string getType() const;
     float getNote() const;
+
+    void setEtudiant(Etudiant);
+    void setMatiere(Matiere);
+    void setDate(string);
+    void setPeriode(string);
+    void setType(string);
 };
 
 #endif

@@ -2,17 +2,20 @@
 #define MATIERE_H
 
 #include <string>
+using namespace std;
 
 class Matiere {
 private:
-    std::string id;
-    std::string libelle;
+    string id, libelle;
 
 public:
     Matiere();
-    Matiere(std::string i, std::string l);
-    std::string getId() const;
-    std::string getLibelle() const;
+    Matiere(string i, string l);
+    string getId() const;
+    string getLibelle() const;
+
+    void setId(string);
+    void setLibelle(string);
 };
 
 #endif

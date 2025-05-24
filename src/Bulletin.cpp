@@ -2,10 +2,8 @@
 
 Bulletin::Bulletin()
 {
-    //ctor
 }
 
-Bulletin::~Bulletin()
+Bulletin::Bulletin()
 {
-    //dtor
 }

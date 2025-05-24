@@ -2,19 +2,24 @@
 #define PROFESSEUR_H
 
 #include <string>
+using namespace std;
 
 class Professeur {
 private:
-    std::string id;
-    std::string nom;
-    std::string prenom;
+    string id, nom, prenom, spec;
 
 public:
     Professeur();
-    Professeur(std::string i, std::string n, std::string p);
-    std::string getId() const;
-    std::string getNom() const;
-    std::string getPrenom() const;
+    Professeur(string i, string n, string p, string spec);
+    string getId() const;
+    string getNom() const;
+    string getPrenom() const;
+    string getSpec();
+
+    void setId(string);
+    void setNom(string);
+    void setPrenom(string);
+    void setSpec(string);
 };
 
 #endif
