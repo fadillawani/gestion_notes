@@ -1,0 +1,93 @@
+#include "EtudiantService.h"
+#include "Etudiant.h"
+#include <fstream>
+#include <iostream>
+using namespace std;
+
+EtudiantService::EtudiantService()
+{
+    nbEtudiants = 0;
+    chargerEtudiantsDepuisFichier();
+}
+
+bool EtudiantService::ajouterEtudiant(Etudiant &etu)
+{
+    if (nbEtudiants >= MAX_ETUDIANTS)
+    {
+        cout << "Nombre maximal d'�tudiants atteint." << endl;
+        return false;
+    }
+
+    if (searchEtudiantByCode(etu.getCode()) == nullptr)
+    {
+        etudiants[nbEtudiants++] = etu;
+        sauvegarderEtudiantsDansFichier();
+        cout << "�tudiant ajout� avec succ�s." << endl;
+        return true;
+    }
+    else
+    {
+        cout << "Un �tudiant avec ce code existe d�j�." << endl;
+        return false;
+    }
+
+    /*// V�rifier que le code n'existe pas d�j�
+    for (int i = 0; i < nbEtudiants; ++i) {
+        if (etudiants[i].getCode() == etu.getCode()) {
+        }
+    }*/
+}
+
+Etudiant *EtudiantService::searchEtudiantByCode(const string &codeEtudiant)
+{
+    for (int i = 0; i < nbEtudiants; ++i)
+    {
+        if (etudiants[i].getCode() == codeEtudiant)
+        {
+            return &etudiants[i]; // Retourne un pointeur vers l'étudiant trouvé
+        }
+    }
+    return nullptr; // Aucun étudiant trouvé avec ce code
+}
+
+void EtudiantService::sauvegarderEtudiantsDansFichier()
+{
+    ofstream fichier("etudiants.txt");
+    for (int i = 0; i < nbEtudiants; ++i)
+    {
+        fichier << etudiants[i].getCode() << ";"
+                << etudiants[i].getNom() << ";"
+                << etudiants[i].getPrenom() << ";"
+                << etudiants[i].getDateNaissance() << ";"
+                << etudiants[i].getLieuNaissance() << ";"
+                << etudiants[i].getAdresse() << endl;
+    }
+    fichier.close();
+}
+
+void EtudiantService::chargerEtudiantsDepuisFichier()
+{
+    ifstream fichier("etudiants.txt");
+    nbEtudiants = 0;
+
+    string code, nom, prenom, dateNaiss, lieuNaiss, adresse;
+    while (getline(fichier, code, ';') &&
+           getline(fichier, nom, ';') &&
+           getline(fichier, prenom, ';') &&
+           getline(fichier, dateNaiss, ';') &&
+           getline(fichier, lieuNaiss, ';') &&
+           getline(fichier, adresse))
+    {
+        Etudiant etu;
+        etu.setCode(code);
+        etu.setNom(nom);
+        etu.setPrenom(prenom);
+        etu.setDateNaissance(dateNaiss);
+        etu.setLieuNaissance(lieuNaiss);
+        etu.setAdresse(adresse);
+
+        etudiants[nbEtudiants++] = etu;
+    }
+
+    fichier.close();
+}

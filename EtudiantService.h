@@ -10,13 +10,13 @@ using namespace std;
 
 #define MAX_ETUDIANTS 100
 
-class ClientService {
+class EtudiantService {
 private:
     Etudiant etudiants[MAX_ETUDIANTS];
     int nbEtudiants;
 
 public:
-    ClientService(); // Constructeur pour charger les données
+    EtudiantService(); // Constructeur pour charger les données
 
     // Ajouter un nouvel étudiant
     bool ajouterEtudiant(Etudiant& etu);
@@ -28,7 +28,7 @@ public:
     bool supprimerEtudiant(const string& codeEtudiant);
 
     // Rechercher un étudiant par son code
-    Etudiant* rechercherEtudiant(const string& codeEtudiant);
+    Etudiant* searchEtudiantByCode(const string& codeEtudiant);
 
     // Lister les étudiants ayant participé à au moins 2 évaluations dans une année donnée
     void listerEtudiantsAvecMinEvaluations(int minEvaluations, const string& annee, Etudiant resultats[], int& nbResultats);
