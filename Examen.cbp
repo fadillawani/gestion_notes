@@ -32,6 +32,27 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Bulletin.cpp" />
+		<Unit filename="Bulletin.h" />
+		<Unit filename="Certificat.cpp" />
+		<Unit filename="Certificat.h" />
+		<Unit filename="Classe.cpp" />
+		<Unit filename="Classe.h" />
+		<Unit filename="Enseignement.cpp" />
+		<Unit filename="Enseignement.h" />
+		<Unit filename="Etudiant.cpp" />
+		<Unit filename="Etudiant.h" />
+		<Unit filename="Evaluation.cpp" />
+		<Unit filename="Evaluation.h" />
+		<Unit filename="Matiere.cpp" />
+		<Unit filename="Matiere.h" />
+		<Unit filename="Module.cpp" />
+		<Unit filename="Module.h" />
+		<Unit filename="Note.cpp" />
+		<Unit filename="Note.h" />
+		<Unit filename="Professeur.cpp" />
+		<Unit filename="Professeur.h" />
+		<Unit filename="Proffesseur.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
