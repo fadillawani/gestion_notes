@@ -20,6 +20,7 @@ EtudiantService::EtudiantService(ClasseService clsService)
 
 void EtudiantService::afficheEtudiants()
 {
+    chargerEtudiantsDepuisFichier();
     for (int i = 0; i < nbEtudiants; ++i) {
         cout << etudiants[i].toString() << endl;
     }
@@ -131,7 +132,8 @@ void EtudiantService::chargerEtudiantsDepuisFichier()
         etu.setDateNaissance(dateNaiss);
         etu.setLieuNaissance(lieuNaiss);
         etu.setAdresse(adresse);
-        //etu.setClasse();
+        Classe *cls = classeService.searchClasseById(clsId);
+        etu.setClasse(*cls);
 
         etudiants[nbEtudiants++] = etu;
     }

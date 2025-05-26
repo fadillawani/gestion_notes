@@ -13,6 +13,7 @@ ClasseService::ClasseService()
 
 void ClasseService::afficheClasses()
 {
+    chargerClassesDepuisFichier();
     for (int i = 0; i < nbClasses; ++i)
     {
         cout << classes[i].toString() << endl;
@@ -88,7 +89,7 @@ void ClasseService::sauvegarderClassesDansFichier()
     }*/
     ofstream fichier("classes.txt");
     Classe cls = Classe("c1", "GLRS-A", "L2");
-    //Classe e = Classe("co3", "Sadjo", "Ousman", "26/10/2007", "Maroua", "Colobane", cls);
+    // Classe e = Classe("co3", "Sadjo", "Ousman", "26/10/2007", "Maroua", "Colobane", cls);
     fichier << cls.getId() << ";"
             << cls.getNom() << ";"
             << cls.getNiveau() << endl;

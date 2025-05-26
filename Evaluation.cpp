@@ -4,19 +4,13 @@ using namespace std;
 
 Evaluation::Evaluation() {}
 
-Evaluation::Evaluation(Etudiant e, Matiere m, string d, string per, string t/*, Note n*/)
+Evaluation::Evaluation(Matiere m, string d, string per, string t, float n)
 {
-    etudiant = e;
     matiere = m;
     date = d;
     periode = per;
     type = t;
-    //note = n;
-}
-
-Etudiant Evaluation::getEtudiant() const
-{
-    return etudiant;
+    note = n;
 }
 
 Matiere Evaluation::getMatiere() const
@@ -39,14 +33,9 @@ string Evaluation::getType() const
     return type;
 }
 
-/*Note Evaluation::getNote() const
+float Evaluation::getNote() const
 {
     return note;
-}*/
-
-void Evaluation::setEtudiant(Etudiant e)
-{
-    etudiant = e;
 }
 
 void Evaluation::setMatiere(Matiere m)
@@ -69,7 +58,7 @@ void Evaluation::setType(string t)
     type = t;
 }
 
-/*void Evaluation::setNote(Note n)
+void Evaluation::setNote(float n)
 {
     note = n;
-}*/
+}

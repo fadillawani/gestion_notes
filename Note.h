@@ -7,12 +7,12 @@ using namespace std;
 class Note
 {
 private:
-    //Evaluation evaluation;
+//    Evaluation evaluation;
     float valeur;
 
 public:
     Note();
-    //Note(Evaluation eval, float val);
+   // Note(Evaluation eval, float val);
     //Evaluation getEvaluation();
     float getValeur();
 
