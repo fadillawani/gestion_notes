@@ -1,5 +1,4 @@
 #include "Classe.h"
-#include "Etudiant.h"
 
 Classe::Classe()
 {
@@ -40,4 +39,9 @@ void Classe::setNom(string n)
 void Classe::setNiveau(string niveau)
 {
     this->niveau = niveau;
+}
+
+string Classe::toString()
+{
+    return id + ", " + nom + ", " + niveau;
 }

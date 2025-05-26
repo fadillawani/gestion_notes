@@ -1,8 +1,9 @@
 #include "Etudiant.h"
+#include "Classe.h"
 using namespace std;
 Etudiant::Etudiant() {}
 
-Etudiant::Etudiant(string c, string n, string p, string dNaiss, string lNaiss, string adr)
+Etudiant::Etudiant(string c, string n, string p, string dNaiss, string lNaiss, string adr, Classe cls)
 {
     code = c;
     nom = n;
@@ -10,6 +11,7 @@ Etudiant::Etudiant(string c, string n, string p, string dNaiss, string lNaiss, s
     dateNaissance = dNaiss;
     lieuNaissance = lNaiss;
     adresse = adr;
+    classe = cls;
 }
 
 string Etudiant::getCode()
@@ -42,6 +44,11 @@ string Etudiant::getAdresse()
     return adresse;
 }
 
+Classe Etudiant::getClasse()
+{
+    return classe;
+}
+
 
 void Etudiant::setCode(string c)
 {
@@ -71,4 +78,14 @@ void Etudiant::setLieuNaissance(string lNaiss)
 void Etudiant::setAdresse(string adr)
 {
     adresse = adr;
+}
+
+void Etudiant::setClasse(Classe cls)
+{
+    classe = cls;
+}
+
+string Etudiant::toString()
+{
+    return code + ", " + nom + ", " + prenom + ", " + dateNaissance + ", " + lieuNaissance + ", " + adresse;
 }

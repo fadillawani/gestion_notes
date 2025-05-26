@@ -18,6 +18,8 @@ public:
     void setId(string);
     void setNom(string);
     void setNiveau(string);
+
+    string toString();
 };
 
 #endif

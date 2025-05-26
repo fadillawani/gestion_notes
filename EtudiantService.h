@@ -1,7 +1,8 @@
-#ifndef CLIENTSERVICE_H_INCLUDED
-#define CLIENTSERVICE_H_INCLUDED
+#ifndef ETUDIANTSERVICE_H_INCLUDED
+#define ETUDIANTSERVICE_H_INCLUDED
 
 #include "Etudiant.h"
+#include "ClasseService.h"
 #include "Evaluation.h"
 #include "Matiere.h"
 
@@ -14,12 +15,20 @@ class EtudiantService {
 private:
     Etudiant etudiants[MAX_ETUDIANTS];
     int nbEtudiants;
+    ClasseService classeService;
 
 public:
-    EtudiantService(); // Constructeur pour charger les données
+    EtudiantService();
+    EtudiantService(ClasseService);
+
+    int getNbEtudiants();
+    void afficheEtudiants();
+
+    void setNbEtudiants();
 
     // Ajouter un nouvel étudiant
     bool ajouterEtudiant(Etudiant& etu);
+    
 
     // Modifier les informations d’un étudiant
     bool modifierEtudiant(const string& codeEtudiant, const Etudiant& etuModifie);
@@ -35,12 +44,14 @@ public:
 
     // Lister les étudiants d’une classe avec leur moyenne (rang à faire dans le .cpp)
     void listerEtudiantsAvecMoyennesEtRang(const string& nomClasse, const string& annee, Etudiant resultats[], float moyennes[], int& nbResultats);
+    void chargerEtudiantsDepuisFichier();       // Lecture depuis fichier
+    void addEtudiantDansFichier(Etudiant e);
+    void sauvegarderEtudiantsDansFichier(); // Sauvegarde dans fichier
 
 private:
-    void chargerEtudiantsDepuisFichier();       // Lecture depuis fichier
-    void sauvegarderEtudiantsDansFichier();     // Sauvegarde dans fichier
+
 
     float calculerMoyenneEtudiant(Etudiant& etu, const string& annee);
 };
 
-#endif // CLIENTSERVICE_H_INCLUDED
+#endif // ETUDIANTSERVICE_H_INCLUDED

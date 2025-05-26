@@ -66,8 +66,11 @@
 1748115409 source:c:\users\acer\onedrive\bureau\cours s4\c++\examen\src\professeur.cpp
 	"Professeur.h"
 
-1748117151 source:d:\licence\licence 2\semestre 2\c++\gestion_notes-main\gestion_notes-main\main.cpp
+1748269482 source:d:\licence\licence 2\semestre 2\c++\gestion_notes-main\gestion_notes-main\main.cpp
 	<iostream>
+	"EtudiantService.h"
+	"ClasseService.h"
+	"Classe.h"
 
 1748132169 source:d:\licence\licence 2\semestre 2\c++\gestion_notes-main\gestion_notes-main\bulletin.cpp
 	"Bulletin.h"
@@ -77,14 +80,14 @@
 	<string>
 	"Etudiant.h"
 
-1748121195 d:\licence\licence 2\semestre 2\c++\gestion_notes-main\gestion_notes-main\etudiant.h
+1748257323 d:\licence\licence 2\semestre 2\c++\gestion_notes-main\gestion_notes-main\etudiant.h
 	<string>
-
-1748129638 source:d:\licence\licence 2\semestre 2\c++\gestion_notes-main\gestion_notes-main\classe.cpp
 	"Classe.h"
-	"Etudiant.h"
 
-1748121685 d:\licence\licence 2\semestre 2\c++\gestion_notes-main\gestion_notes-main\classe.h
+1748267877 source:d:\licence\licence 2\semestre 2\c++\gestion_notes-main\gestion_notes-main\classe.cpp
+	"Classe.h"
+
+1748268455 d:\licence\licence 2\semestre 2\c++\gestion_notes-main\gestion_notes-main\classe.h
 	<string>
 
 1748130082 source:d:\licence\licence 2\semestre 2\c++\gestion_notes-main\gestion_notes-main\enseignement.cpp
@@ -124,8 +127,9 @@
 1748132141 source:d:\licence\licence 2\semestre 2\c++\gestion_notes-main\gestion_notes-main\professeur.cpp
 	"Professeur.h"
 
-1748132421 source:d:\licence\licence 2\semestre 2\c++\gestion_notes-main\gestion_notes-main\etudiant.cpp
+1748257608 source:d:\licence\licence 2\semestre 2\c++\gestion_notes-main\gestion_notes-main\etudiant.cpp
 	"Etudiant.h"
+	"Classe.h"
 
 1748132802 source:d:\licence\licence 2\semestre 2\c++\gestion_notes-main\gestion_notes-main\evaluation.cpp
 	"Evaluation.h"
@@ -142,4 +146,24 @@
 
 1748132697 source:d:\licence\licence 2\semestre 2\c++\gestion_notes-main\gestion_notes-main\note.cpp
 	"Note.h"
+
+1748268963 source:d:\licence\licence 2\semestre 2\c++\gestion_notes-main\gestion_notes-main\etudiantservice.cpp
+	"EtudiantService.h"
+	"Etudiant.h"
+	"Classe.h"
+	<fstream>
+	<iostream>
+
+1748268975 d:\licence\licence 2\semestre 2\c++\gestion_notes-main\gestion_notes-main\etudiantservice.h
+	"Etudiant.h"
+	"ClasseService.h"
+	"Evaluation.h"
+	"Matiere.h"
+	<string>
+
+1748269345 d:\licence\licence 2\semestre 2\c++\gestion_notes-main\gestion_notes-main\classeservice.h
+	"Classe.h"
+	"Evaluation.h"
+	"Matiere.h"
+	<string>
 

@@ -1,5 +1,6 @@
 #include "EtudiantService.h"
 #include "Etudiant.h"
+#include "Classe.h"
 #include <fstream>
 #include <iostream>
 using namespace std;
@@ -8,6 +9,24 @@ EtudiantService::EtudiantService()
 {
     nbEtudiants = 0;
     chargerEtudiantsDepuisFichier();
+}
+
+EtudiantService::EtudiantService(ClasseService clsService)
+{
+    nbEtudiants = 0;
+    chargerEtudiantsDepuisFichier();
+    classeService = clsService;
+}
+
+void EtudiantService::afficheEtudiants()
+{
+    for (int i = 0; i < nbEtudiants; ++i) {
+        cout << etudiants[i].toString() << endl;
+    }
+}
+int EtudiantService::getNbEtudiants()
+{
+    return nbEtudiants;
 }
 
 bool EtudiantService::ajouterEtudiant(Etudiant &etu)
@@ -50,9 +69,23 @@ Etudiant *EtudiantService::searchEtudiantByCode(const string &codeEtudiant)
     return nullptr; // Aucun étudiant trouvé avec ce code
 }
 
+void EtudiantService::addEtudiantDansFichier(Etudiant e)
+{
+    ofstream fichier("classes.txt", ios::app);
+    fichier << e.getCode() << ";"
+            << e.getNom() << ";"
+            << e.getPrenom() << ";"
+            << e.getDateNaissance() << ";"
+            << e.getLieuNaissance() << ";"
+            << e.getAdresse() << ";"
+            << e.getClasse().getId() << endl;
+
+    fichier.close();
+}
+
 void EtudiantService::sauvegarderEtudiantsDansFichier()
 {
-    ofstream fichier("etudiants.txt");
+    /*ofstream fichier("etudiants.txt");
     for (int i = 0; i < nbEtudiants; ++i)
     {
         fichier << etudiants[i].getCode() << ";"
@@ -61,7 +94,18 @@ void EtudiantService::sauvegarderEtudiantsDansFichier()
                 << etudiants[i].getDateNaissance() << ";"
                 << etudiants[i].getLieuNaissance() << ";"
                 << etudiants[i].getAdresse() << endl;
-    }
+    }*/
+    ofstream fichier("etudiants.txt");
+    Classe cls = Classe("c1", "GLRS-A", "L2");
+    Etudiant e = Etudiant("co3", "Sadjo", "Ousman", "26/10/2007", "Maroua", "Colobane", cls);
+        fichier << e.getCode() << ";"
+                << e.getNom() << ";"
+                << e.getPrenom() << ";"
+                << e.getDateNaissance() << ";"
+                << e.getLieuNaissance() << ";"
+                << e.getAdresse() << ";"
+                << e.getClasse().getId() << endl;
+
     fichier.close();
 }
 
@@ -70,13 +114,15 @@ void EtudiantService::chargerEtudiantsDepuisFichier()
     ifstream fichier("etudiants.txt");
     nbEtudiants = 0;
 
-    string code, nom, prenom, dateNaiss, lieuNaiss, adresse;
+    string code, nom, prenom, dateNaiss, lieuNaiss, adresse, clsId;
+    Classe cls;
     while (getline(fichier, code, ';') &&
            getline(fichier, nom, ';') &&
            getline(fichier, prenom, ';') &&
            getline(fichier, dateNaiss, ';') &&
            getline(fichier, lieuNaiss, ';') &&
-           getline(fichier, adresse))
+           getline(fichier, adresse, ';') &&
+           getline(fichier, clsId))
     {
         Etudiant etu;
         etu.setCode(code);
@@ -85,6 +131,7 @@ void EtudiantService::chargerEtudiantsDepuisFichier()
         etu.setDateNaissance(dateNaiss);
         etu.setLieuNaissance(lieuNaiss);
         etu.setAdresse(adresse);
+        //etu.setClasse();
 
         etudiants[nbEtudiants++] = etu;
     }
