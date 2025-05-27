@@ -49,3 +49,8 @@ void Professeur::setSpec(string s)
 {
     spec = s;
 }
+
+string Professeur::toString()
+{
+    return id + ", " + nom + ", " + prenom + ", " + spec;
+}

@@ -28,7 +28,7 @@ public:
 
     // Ajouter un nouvel étudiant
     bool ajouterEtudiant(Etudiant& etu);
-    
+
 
     // Modifier les informations d’un étudiant
     bool modifierEtudiant(const string& codeEtudiant, const Etudiant& etuModifie);
@@ -40,7 +40,11 @@ public:
     Etudiant* searchEtudiantByCode(const string& codeEtudiant);
 
     // Lister les étudiants ayant participé à au moins 2 évaluations dans une année donnée
-    void listerEtudiantsAvecMinEvaluations(int minEvaluations, const string& annee, Etudiant resultats[], int& nbResultats);
+    void listerEtudiantsAvecMinEvaluations();
+    void classesAvec2EvalMinimum(string classes2evalMininum[], int& nbClasses);
+    void chargerIdClassesPassageEvalDepuisFichier(string idClasses[], int& nbIdClasses);
+    void chargerEtudiantsDesClassesDepuisFichier(string idClasses[], int& nbClasses);
+    void occurencesIdClasse(string idClasses[], int nbIdClasses);
 
     // Lister les étudiants d’une classe avec leur moyenne (rang à faire dans le .cpp)
     void listerEtudiantsAvecMoyennesEtRang(const string& nomClasse, const string& annee, Etudiant resultats[], float moyennes[], int& nbResultats);

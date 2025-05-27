@@ -2,7 +2,7 @@
 #include "Matiere.h"
 using namespace std;
 Enseignement::Enseignement() {}
-Enseignement::Enseignement(Classe c, Matiere m, int vh, float coef, Professeur p, string an)
+Enseignement::Enseignement(Classe c, Matiere m, int vh, double coef, Professeur p, string an)
 {
     classe = c;
     matiere = m;
@@ -27,7 +27,7 @@ int Enseignement::getVolumeHoraire() const
     return volumeHoraire;
 }
 
-float Enseignement::getCoefficient() const
+double Enseignement::getCoefficient() const
 {
     return coefficient;
 }
@@ -57,7 +57,7 @@ void Enseignement::setVolumeHoraire(int vh)
     volumeHoraire = vh;
 }
 
-void Enseignement::setCoefficient(float coef)
+void Enseignement::setCoefficient(double coef)
 {
     coefficient = coef;
 }
@@ -70,4 +70,9 @@ void Enseignement::setProf(Professeur p)
 void Enseignement::setAnnee(string an)
 {
     annee = an;
+}
+
+string Enseignement::toString()
+{
+    return classe.getId() + ", " + matiere.getId() + ", " + to_string(volumeHoraire)+ ", " + to_string(coefficient) + ", " + professeur.getId() + ", " + annee;
 }

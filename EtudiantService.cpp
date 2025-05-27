@@ -3,6 +3,9 @@
 #include "Classe.h"
 #include <fstream>
 #include <iostream>
+#include <map>
+//#include <boost/algorithm/string.hpp>
+#define MAX_PASSAGEEVAL 500
 using namespace std;
 
 EtudiantService::EtudiantService()
@@ -72,7 +75,7 @@ Etudiant *EtudiantService::searchEtudiantByCode(const string &codeEtudiant)
 
 void EtudiantService::addEtudiantDansFichier(Etudiant e)
 {
-    ofstream fichier("classes.txt", ios::app);
+    ofstream fichier("etudiants.txt", ios::app);
     fichier << e.getCode() << ";"
             << e.getNom() << ";"
             << e.getPrenom() << ";"
@@ -123,7 +126,7 @@ void EtudiantService::chargerEtudiantsDepuisFichier()
            getline(fichier, dateNaiss, ';') &&
            getline(fichier, lieuNaiss, ';') &&
            getline(fichier, adresse, ';') &&
-           getline(fichier, clsId))
+           getline(fichier, clsId, '\n'))
     {
         Etudiant etu;
         etu.setCode(code);
@@ -132,11 +135,99 @@ void EtudiantService::chargerEtudiantsDepuisFichier()
         etu.setDateNaissance(dateNaiss);
         etu.setLieuNaissance(lieuNaiss);
         etu.setAdresse(adresse);
-        Classe *cls = classeService.searchClasseById(clsId);
-        etu.setClasse(*cls);
+        /*Classe *cls = classeService.searchClasseById(clsId);
+        etu.setClasse(*cls);*/
 
         etudiants[nbEtudiants++] = etu;
     }
 
     fichier.close();
+}
+
+void EtudiantService::chargerEtudiantsDesClassesDepuisFichier(string idClasses[], int& nbClasses)
+{
+    ifstream fichier("etudiants.txt");
+    nbEtudiants = 0;
+
+    string code, nom, prenom, dateNaiss, lieuNaiss, adresse, clsId;
+    Classe cls;
+    while (getline(fichier, code, ';') &&
+           getline(fichier, nom, ';') &&
+           getline(fichier, prenom, ';') &&
+           getline(fichier, dateNaiss, ';') &&
+           getline(fichier, lieuNaiss, ';') &&
+           getline(fichier, adresse, ';') &&
+           getline(fichier, clsId, '\n'))
+    {
+
+        for(int i = 0; i < nbClasses; i++)
+        {
+            if(clsId == idClasses[i])
+            {
+                Etudiant etu;
+                etu.setCode(code);
+                etu.setNom(nom);
+                etu.setPrenom(prenom);
+                etu.setDateNaissance(dateNaiss);
+                etu.setLieuNaissance(lieuNaiss);
+                etu.setAdresse(adresse);
+                /*Classe *cls = classeService.searchClasseById(clsId);
+                etu.setClasse(*cls);*/
+
+                etudiants[nbEtudiants++] = etu;
+            }
+        }
+
+    }
+    fichier.close();
+}
+
+void EtudiantService::chargerIdClassesPassageEvalDepuisFichier(string idClasses[], int& nbIdClasses)
+{
+    ifstream fichier("passageEvals.txt");
+    int nbPassages = 0;
+
+    string id, idClasse, idEval;
+    while (getline(fichier, id, ';') &&
+           getline(fichier, idClasse, ';') &&
+           getline(fichier, idEval))
+    {
+
+        idClasses[nbPassages++] = idClasse;
+    }
+    nbIdClasses = nbPassages;
+    fichier.close();
+}
+
+void EtudiantService::classesAvec2EvalMinimum(string classes2evalMininum[], int& nbClasses)
+{
+    string idClasses[MAX_PASSAGEEVAL];
+    int nbPassages = 0;
+    chargerIdClassesPassageEvalDepuisFichier(idClasses, nbPassages);
+    map<string, int> occurrences;
+
+    // Comptage
+    for (int i = 0; i < nbPassages; ++i) {
+        occurrences[idClasses[i]]++;
+    }
+
+    cout << "Classes avec plus de 2 évluations :" << endl;
+    for (const auto& paire : occurrences) {
+        if (paire.second >= 2) {
+            cout << "- " << paire.first << " : " << paire.second << " fois" << endl;
+            classes2evalMininum[nbClasses++] = paire.first;
+        }
+    }
+}
+
+void EtudiantService::listerEtudiantsAvecMinEvaluations()
+{
+
+    string classes2evalMininum[100];
+    int nbClasses2evalMininum = 0;
+    classesAvec2EvalMinimum(classes2evalMininum, nbClasses2evalMininum);
+    chargerEtudiantsDesClassesDepuisFichier(classes2evalMininum, nbClasses2evalMininum);
+    for (int i = 0; i < 2; ++i) {
+        cout << etudiants[i].toString() << endl;
+    }
 }

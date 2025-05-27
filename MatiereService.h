@@ -6,7 +6,8 @@
 
 #define MAX_MATIERES 100
 
-class MatiereService {
+class MatiereService
+{
 private:
     Matiere matieres[MAX_MATIERES];
     int nbMatieres;
@@ -14,10 +15,10 @@ private:
 public:
     MatiereService();
 
-    bool ajouterMatiere(const Matiere& matiere);
-    bool modifierMatiere(const std::string& idMatiere, const Matiere& nouvelleMatiere);
-    bool supprimerMatiere(const std::string& idMatiere);
-    Matiere* rechercherMatiere(const std::string& idMatiere);
+    bool ajouterMatiere(const Matiere &matiere);
+    bool modifierMatiere(const std::string &idMatiere, const Matiere &nouvelleMatiere);
+    bool supprimerMatiere(const std::string &idMatiere);
+    Matiere *searchMatiereById(string &idMatiere);
     void listerToutesLesMatieres();
 
     void chargerMatieresDepuisFichier();

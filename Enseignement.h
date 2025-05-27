@@ -12,27 +12,29 @@ private:
     Classe classe;
     Matiere matiere;
     int volumeHoraire;
-    float coefficient;
+    double coefficient;
     Professeur professeur;
     string annee;
 
 public:
     Enseignement();
-    Enseignement(Classe c, Matiere m, int vh, float coef, Professeur p, string an);
+    Enseignement(Classe c, Matiere m, int vh, double coef, Professeur p, string an);
 
     Classe getClasse() const;
     Matiere getMatiere() const;
     int getVolumeHoraire() const;
-    float getCoefficient() const;
+    double getCoefficient() const;
     Professeur getProfesseur() const;
     string getAnnee() const;
 
     void setClasse(Classe);
     void setMatiere(Matiere);
     void setVolumeHoraire(int);
-    void setCoefficient(float);
+    void setCoefficient(double);
     void setProf(Professeur);
     void setAnnee(string);
+
+    string toString();
 };
 
 #endif

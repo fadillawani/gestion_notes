@@ -20,6 +20,8 @@ public:
     void setNom(string);
     void setPrenom(string);
     void setSpec(string);
+
+    string toString();
 };
 
 #endif

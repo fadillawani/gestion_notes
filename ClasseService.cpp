@@ -13,7 +13,7 @@ ClasseService::ClasseService()
 
 void ClasseService::afficheClasses()
 {
-    chargerClassesDepuisFichier();
+    //chargerClassesDepuisFichier();
     for (int i = 0; i < nbClasses; ++i)
     {
         cout << classes[i].toString() << endl;
@@ -54,6 +54,7 @@ bool ClasseService::ajouterClasse(Classe &cls)
 
 Classe *ClasseService::searchClasseById(const string &idClasse)
 {
+    chargerClassesDepuisFichier();
     for (int i = 0; i < nbClasses; ++i)
     {
         if (classes[i].getId() == idClasse)
@@ -103,7 +104,6 @@ void ClasseService::chargerClassesDepuisFichier()
     nbClasses = 0;
 
     string id, nom, niveau;
-    Classe cls;
     while (getline(fichier, id, ';') &&
            getline(fichier, nom, ';') &&
            getline(fichier, niveau))
