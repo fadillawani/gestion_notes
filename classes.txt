@@ -1,2 +1,0 @@
-c1;GLRS-A;L2
-c2;GLRS-B;L2

@@ -1,12 +1,18 @@
 #include "Module.h"
 
 Module::Module() {}
-Module::Module(Matiere m, Classe c, int d, double coef)
+Module::Module(string i, Matiere m, Classe c, int d, double coef)
 {
+    id = i;
     matiere = m;
     classe = c;
     duree = d;
     coefficient = coef;
+}
+
+string Module::getId()
+{
+    return id;
 }
 
 Matiere Module::getMatiere()
@@ -27,6 +33,11 @@ int Module::getDuree()
 double Module::getCoefficient()
 {
     return coefficient;
+}
+
+void Module::setId(string i)
+{
+    id = i;
 }
 
 void Module::setMatiere(Matiere m)

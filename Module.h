@@ -18,7 +18,7 @@ private:
 
 public:
     Module();
-    Module(Matiere m, Classe c, int d, double coef);
+    Module(string id, Matiere m, Classe c, int d, double coef);
 
     string getId();
     Matiere getMatiere();

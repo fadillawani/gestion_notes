@@ -69,7 +69,7 @@ void EvaluationService::listerToutesLesEvaluationsGeneralesDeAnnee(string annee)
 {
     chargerEvaluationsGeneralesDepuisFichier();
 
-    trierEvaluationsGeneralesByAnnee(evaluationsGenerales, nbEvaluationsGenerales, annee);
+    trierEvaluationsGeneralesByAnnee(annee);
     for (int i = 0; i < nbEvaluationsGenerales; i++)
     {
         cout << evaluationsGenerales[i].toString() << endl;
@@ -84,20 +84,28 @@ void EvaluationService::listerToutesLesEvaluationsGeneralesDeAnnee(string annee)
     }*/
 }
 
-void EvaluationService::trierEvaluationsGeneralesByAnnee(EvaluationGenerale evaluationsGenerales[], int nbEvaluations, string annee)
+void EvaluationService::trierEvaluationsGeneralesByAnnee(string annee)
 {
-
+    int nbNewEvals = 0;
     EvaluationGenerale evalsGen[nbEvaluations];
     for (int i = 0; i < nbEvaluations; ++i)
     {
-        evalsGen[i] = evaluationsGenerales[i];
+        if (evaluations[i].getAnnee() == annee)
+        {
+            evalsGen[i] = evaluationsGenerales[i];
+            nbNewEvals++;
+        }
     }
-    evaluationsGenerales = evalsGen;
+    nbEvaluations = nbNewEvals;
+    for (int i = 0; i < nbEvaluations; i++)
+    {
+        evaluationsGenerales[i] = evalsGen[i];
+    }
 }
 
 void EvaluationService::chargerEvaluationsOfEtudiant(Etudiant etu, string periode)
 {
-    ifstream fichier("BD/etudiants/"+etu.getCode()+"/evals.txt");
+    ifstream fichier("BD/etudiants/" + etu.getCode() + "/evals.txt");
     nbEvaluationsGenerales = 0;
 
     string id, etuId, matiereId, date, per, type, note, annee;
@@ -126,22 +134,32 @@ void EvaluationService::chargerEvaluationsOfEtudiant(Etudiant etu, string period
     fichier.close();
 }
 
-void EvaluationService::trierEvaluationsEtudiantByPeriode(Evaluation evaluations[], int nbEvaluations, string periode)
+void EvaluationService::trierEvaluationsEtudiantByPeriode(string periode)
 {
-
+    int nbNewEvals = 0;
     Evaluation evals[nbEvaluations];
     for (int i = 0; i < nbEvaluations; ++i)
     {
-        evals[i] = evaluations[i];
+        if (evaluations[i].getPeriode() == periode)
+        {
+            evals[nbNewEvals] = evaluations[i];
+            nbNewEvals++;
+        }
     }
-    evaluations = evals;
+    nbEvaluations = nbNewEvals;
+    for(int i = 0; i < nbEvaluations; i++)
+    {
+        evaluations[i] = evals[i];
+    }
+    //evaluations = evals;
+    
 }
 
 void EvaluationService::listerEvaluationsEtudiantPeriode(Etudiant etu, string periode)
 {
     chargerEvaluationsOfEtudiant(etu, periode);
 
-    trierEvaluationsEtudiantByPeriode(evaluations, nbEvaluations, periode);
+    trierEvaluationsEtudiantByPeriode(periode);
     for (int i = 0; i < nbEvaluations; i++)
     {
         cout << evaluations[i].toString() << endl;
@@ -151,10 +169,10 @@ void EvaluationService::listerEvaluationsEtudiantPeriode(Etudiant etu, string pe
 double EvaluationService::moyenneEtudiantPeriode(Etudiant etu, string periode)
 {
     chargerEvaluationsOfEtudiant(etu, periode);
-    trierEvaluationsEtudiantByPeriode(evaluations, nbEvaluations, periode);
+    trierEvaluationsEtudiantByPeriode(periode);
     double sumCoef = 0;
     double sumNotexCoef = 0;
-    for(int i = 0; i < nbEvaluations; i++)
+    for (int i = 0; i < nbEvaluations; i++)
     {
         Evaluation eval = evaluations[i];
         string modId = eval.getMatiere().getId();
@@ -164,7 +182,7 @@ double EvaluationService::moyenneEtudiantPeriode(Etudiant etu, string periode)
         sumCoef += coefMatiere;
         sumNotexCoef += note * coefMatiere;
     }
-    return sumNotexCoef/sumCoef;
+    return sumNotexCoef / sumCoef;
 }
 
 void listerEvaluationsGeneralesParAnnee(const std::string &annee);

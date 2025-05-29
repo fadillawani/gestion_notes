@@ -1,1 +1,3 @@
 eval1co3;co3;m1;26/10/2024;semestre1;devoir;18,5;2024-2025
+eval2co3;co3;m2;26/10/2024;semestre2;devoir;18,5;2024-2025
+eval3co3;co3;m1;26/10/2024;semestre1;devoir;18,5;2024-2025

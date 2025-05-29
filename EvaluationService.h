@@ -47,13 +47,13 @@ public:
     void afficheEvaluations();
 
     void listerToutesLesEvaluationsGeneralesDeAnnee(string annee);
-    void trierEvaluationsGeneralesByAnnee(EvaluationGenerale evaluationsGenerales[], int nbEvaluations, string annee);
+    void trierEvaluationsGeneralesByAnnee(string annee);
     void chargerEvaluationsGeneralesDepuisFichier();
     void sauvegarderEvaluationsGeneralesDansFichier();
 
     void listerEvaluationsEtudiantPeriode(Etudiant, string);
     void chargerEvaluationsOfEtudiant(Etudiant, string);
-    void trierEvaluationsEtudiantByPeriode(Evaluation evaluations[], int nbEvaluations, string periode);
+    void trierEvaluationsEtudiantByPeriode(string);
 
     double moyenneEtudiantPeriode(Etudiant etu, string periode);
 

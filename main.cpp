@@ -28,8 +28,9 @@ int main()
     es.chargerEtudiantsDepuisFichier();
     es.afficheEtudiants();
 
-    evalS.chargerEvaluationsOfEtudiant(*es.searchEtudiantByCode("co3"), "semestre1");
-    evalS.afficheEvaluations();
+    //evalS.chargerEvaluationsOfEtudiant(*es.searchEtudiantByCode("co3"), "semestre2");
+    evalS.listerEvaluationsEtudiantPeriode(*es.searchEtudiantByCode("co3"), "semestre2");
+    //evalS.afficheEvaluations();
     /*cout << es.getNbEtudiants() << endl;
     cout << "Hello world!" << endl;*/
     return 0;
