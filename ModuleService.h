@@ -3,6 +3,8 @@
 
 #include <string>
 #include "Module.h"
+#include "MatiereService.h"
+#include "ClasseService.h"
 
 #define MAX_MODULES 100
 
@@ -11,11 +13,17 @@ private:
     Module modules[MAX_MODULES];
     int nbModules;
 
+    MatiereService matiereService;
+    ClasseService classeService;
+
 public:
     ModuleService();
+    ModuleService(MatiereService, ClasseService);
 
     bool ajouterModule(const Module& module);
-    void listerMatieresParClasseEtAnnee(const std::string& nomClasse, const std::string& anneeAcademique);
+    void listerModulesParClasseEtAnnee(const std::string& nomClasse, const std::string& anneeAcademique);
+    Module *searchModuleById(string &idModule);
+    Module *searchModuleByIdMatiere(string &idMatiere);
 
     void chargerModulesDepuisFichier();
     void sauvegarderModulesDansFichier();

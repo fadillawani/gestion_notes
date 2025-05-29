@@ -1,5 +1,5 @@
-#ifndef EVALUATION_H
-#define EVALUATION_H
+#ifndef EVALUATIONGENERALE_H
+#define EVALUATIONGENERALE_H
 
 #include <string>
 #include "Etudiant.h"
@@ -13,19 +13,17 @@ private:
     string date;
     string periode; // SEMESTRE 1 ou SEMESTRE 2
     string type;    // EXAMEN ou DEVOIR
-    float note;
     string annee;
 
 public:
     EvaluationGenerale();
-    EvaluationGenerale(string id, Matiere m, string d, string per, string t, float n, string a);
+    EvaluationGenerale(string id, Matiere m, string d, string per, string t, string a);
 
     string getId();
     Matiere getMatiere() const;
     string getDate() const;
     string getPeriode() const;
     string getType() const;
-    float getNote() const;
     string getAnnee() const;
 
     void setId(string);
@@ -33,7 +31,6 @@ public:
     void setDate(string);
     void setPeriode(string);
     void setType(string);
-    void setNote(float);
     void setAnnee(string);
 
     string toString();

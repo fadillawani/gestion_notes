@@ -1,5 +1,7 @@
 #include "EvaluationService.h"
 #include "EvaluationGenerale.h"
+#include "Evaluation.h"
+#include "Module.h"
 #include <fstream>
 #include <iostream>
 #include <set>
@@ -8,9 +10,19 @@ EvaluationService::EvaluationService()
 {
 }
 
-EvaluationService::EvaluationService(MatiereService matS)
+EvaluationService::EvaluationService(MatiereService matS, EnseignementService ensS, ModuleService modS)
 {
     matiereService = matS;
+    enseignementService = ensS;
+    moduleService = modS;
+}
+
+void EvaluationService::afficheEvaluations()
+{
+    for (int i = 0; i < nbEvaluations; ++i)
+    {
+        cout << evaluations[i].toString() << endl;
+    }
 }
 
 EvaluationGenerale *EvaluationService::searchEvaluationGeneraleById(string &idEvaluationGenerale)
@@ -28,7 +40,7 @@ EvaluationGenerale *EvaluationService::searchEvaluationGeneraleById(string &idEv
 
 void EvaluationService::chargerEvaluationsGeneralesDepuisFichier()
 {
-    ifstream fichier("evaluationsGenerales.txt");
+    ifstream fichier("BD/evaluationsGenerales.txt");
     nbEvaluationsGenerales = 0;
 
     string id, matiereId, date, periode, type, annee;
@@ -41,14 +53,13 @@ void EvaluationService::chargerEvaluationsGeneralesDepuisFichier()
     {
         EvaluationGenerale eval;
         eval.setId(id);
-        //eval.setMatiere(*matiereService.searchMatiereById(matiereId));
+        eval.setMatiere(*matiereService.searchMatiereById(matiereId));
         eval.setDate(date);
         eval.setPeriode(periode);
         eval.setType(type);
         eval.setAnnee(annee);
 
         evaluationsGenerales[nbEvaluationsGenerales++] = eval;
-        cout << "fyhnkl,j";
     }
 
     fichier.close();
@@ -57,11 +68,11 @@ void EvaluationService::chargerEvaluationsGeneralesDepuisFichier()
 void EvaluationService::listerToutesLesEvaluationsGeneralesDeAnnee(string annee)
 {
     chargerEvaluationsGeneralesDepuisFichier();
-    
+
     trierEvaluationsGeneralesByAnnee(evaluationsGenerales, nbEvaluationsGenerales, annee);
     for (int i = 0; i < nbEvaluationsGenerales; i++)
     {
-        cout << evaluationsGenerales[i].toString();
+        cout << evaluationsGenerales[i].toString() << endl;
     }
     /*for (string idProf : idProfsUniques)
     {
@@ -75,13 +86,85 @@ void EvaluationService::listerToutesLesEvaluationsGeneralesDeAnnee(string annee)
 
 void EvaluationService::trierEvaluationsGeneralesByAnnee(EvaluationGenerale evaluationsGenerales[], int nbEvaluations, string annee)
 {
-    
+
     EvaluationGenerale evalsGen[nbEvaluations];
     for (int i = 0; i < nbEvaluations; ++i)
     {
         evalsGen[i] = evaluationsGenerales[i];
     }
     evaluationsGenerales = evalsGen;
+}
+
+void EvaluationService::chargerEvaluationsOfEtudiant(Etudiant etu, string periode)
+{
+    ifstream fichier("BD/etudiants/"+etu.getCode()+"/evals.txt");
+    nbEvaluationsGenerales = 0;
+
+    string id, etuId, matiereId, date, per, type, note, annee;
+    while (getline(fichier, id, ';') &&
+           getline(fichier, etuId, ';') &&
+           getline(fichier, matiereId, ';') &&
+           getline(fichier, date, ';') &&
+           getline(fichier, per, ';') &&
+           getline(fichier, type, ';') &&
+           getline(fichier, note, ';') &&
+           getline(fichier, annee, '\n'))
+    {
+        Evaluation eval;
+        eval.setId(id);
+        eval.setEtudiant(etu);
+        eval.setMatiere(*matiereService.searchMatiereById(matiereId));
+        eval.setDate(date);
+        eval.setPeriode(per);
+        eval.setType(type);
+        eval.setNote(stod(note));
+        eval.setAnnee(annee);
+
+        evaluations[nbEvaluations++] = eval;
+    }
+
+    fichier.close();
+}
+
+void EvaluationService::trierEvaluationsEtudiantByPeriode(Evaluation evaluations[], int nbEvaluations, string periode)
+{
+
+    Evaluation evals[nbEvaluations];
+    for (int i = 0; i < nbEvaluations; ++i)
+    {
+        evals[i] = evaluations[i];
+    }
+    evaluations = evals;
+}
+
+void EvaluationService::listerEvaluationsEtudiantPeriode(Etudiant etu, string periode)
+{
+    chargerEvaluationsOfEtudiant(etu, periode);
+
+    trierEvaluationsEtudiantByPeriode(evaluations, nbEvaluations, periode);
+    for (int i = 0; i < nbEvaluations; i++)
+    {
+        cout << evaluations[i].toString() << endl;
+    }
+}
+
+double EvaluationService::moyenneEtudiantPeriode(Etudiant etu, string periode)
+{
+    chargerEvaluationsOfEtudiant(etu, periode);
+    trierEvaluationsEtudiantByPeriode(evaluations, nbEvaluations, periode);
+    double sumCoef = 0;
+    double sumNotexCoef = 0;
+    for(int i = 0; i < nbEvaluations; i++)
+    {
+        Evaluation eval = evaluations[i];
+        string modId = eval.getMatiere().getId();
+        Module moduleRelatif = *moduleService.searchModuleByIdMatiere(modId);
+        double coefMatiere = moduleRelatif.getCoefficient();
+        double note = evaluations[i].getNote();
+        sumCoef += coefMatiere;
+        sumNotexCoef += note * coefMatiere;
+    }
+    return sumNotexCoef/sumCoef;
 }
 
 void listerEvaluationsGeneralesParAnnee(const std::string &annee);

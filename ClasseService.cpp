@@ -67,7 +67,7 @@ Classe *ClasseService::searchClasseById(const string &idClasse)
 
 void ClasseService::addClasseDansFichier(Classe cls1)
 {
-    ofstream fichier("classes.txt", ios::app);
+    ofstream fichier("BD/classes.txt", ios::app);
     Classe cls = Classe("c1", "GLRS-A", "L2");
     fichier << cls.getId() << ";"
             << cls.getNom() << ";"
@@ -88,7 +88,7 @@ void ClasseService::sauvegarderClassesDansFichier()
                 << classes[i].getLieuNaissance() << ";"
                 << classes[i].getAdresse() << endl;
     }*/
-    ofstream fichier("classes.txt");
+    ofstream fichier("BD/classes.txt");
     Classe cls = Classe("c1", "GLRS-A", "L2");
     // Classe e = Classe("co3", "Sadjo", "Ousman", "26/10/2007", "Maroua", "Colobane", cls);
     fichier << cls.getId() << ";"
@@ -100,7 +100,7 @@ void ClasseService::sauvegarderClassesDansFichier()
 
 void ClasseService::chargerClassesDepuisFichier()
 {
-    ifstream fichier("classes.txt");
+    ifstream fichier("BD/classes.txt");
     nbClasses = 0;
 
     string id, nom, niveau;

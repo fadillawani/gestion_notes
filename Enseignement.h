@@ -7,8 +7,10 @@
 #include "Professeur.h"
 using namespace std;
 
-class Enseignement {
+class Enseignement
+{
 private:
+    string id;
     Classe classe;
     Matiere matiere;
     int volumeHoraire;
@@ -20,6 +22,7 @@ public:
     Enseignement();
     Enseignement(Classe c, Matiere m, int vh, double coef, Professeur p, string an);
 
+    string getId();
     Classe getClasse() const;
     Matiere getMatiere() const;
     int getVolumeHoraire() const;
@@ -27,6 +30,7 @@ public:
     Professeur getProfesseur() const;
     string getAnnee() const;
 
+    void setId(string);
     void setClasse(Classe);
     void setMatiere(Matiere);
     void setVolumeHoraire(int);

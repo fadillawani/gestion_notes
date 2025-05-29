@@ -36,7 +36,7 @@ void EnseignementService::afficheEnseignements()
 
 void EnseignementService::chargerEnseignementsDepuisFichier()
 {
-    ifstream fichier("enseignements.txt");
+    ifstream fichier("BD/enseignements.txt");
     nbEnseignements = 0;
 
     string clsId, matiereId, vhStr, coefStr, idProf, annee;
@@ -51,7 +51,7 @@ void EnseignementService::chargerEnseignementsDepuisFichier()
         ens.setClasse(*ClasseService().searchClasseById(clsId));
         ens.setMatiere(*MatiereService().searchMatiereById(matiereId));
         ens.setVolumeHoraire(stoi(vhStr));
-        ens.setCoefficient(stof(coefStr));
+        ens.setCoefficient(stod(coefStr));
         ens.setProf(*ProfesseurService().searchProfesseurById(idProf));
         ens.setAnnee(annee);
 
@@ -63,7 +63,7 @@ void EnseignementService::chargerEnseignementsDepuisFichier()
 
 void EnseignementService::chargerEnseignementsDepuisFichierDeClasseEtAnnee(string idClasse, string annee)
 {
-    ifstream fichier("enseignements.txt");
+    ifstream fichier("BD/enseignements.txt");
     nbEnseignements = 0;
 
     string clsId, matiereId, vhStr, coefStr, idProf, ann;

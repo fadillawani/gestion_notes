@@ -3,6 +3,9 @@
 
 #include <string>
 #include "MatiereService.h"
+#include "EnseignementService.h"
+#include "ModuleService.h"
+#include "Evaluation.h"
 #include "EvaluationGenerale.h" // Doit contenir Etudiant, Matiere, note, date, type, p�riode
 
 #define MAX_EVALUATIONS_GENERALES 500
@@ -12,11 +15,17 @@ class EvaluationService
 private:
     EvaluationGenerale evaluationsGenerales[MAX_EVALUATIONS_GENERALES];
     int nbEvaluationsGenerales;
+
+    Evaluation evaluations[MAX_EVALUATIONS_GENERALES];
+    int nbEvaluations;
+
     MatiereService matiereService;
+    EnseignementService enseignementService;
+    ModuleService moduleService;
 
 public:
     EvaluationService();               // Charge les �valuations depuis le fichier au d�marrage
-    EvaluationService(MatiereService); // Charge les �valuations depuis le fichier au d�marrage
+    EvaluationService(MatiereService, EnseignementService, ModuleService); // Charge les �valuations depuis le fichier au d�marrage
 
     // Ajouter une �valuation
     bool ajouterEvaluationGenerale(const EvaluationGenerale &eval);
@@ -35,10 +44,18 @@ public:
     // Voir toutes les notes d�un �tudiant pour une p�riode donn�e (SEMESTRE 1 ou 2)
     void listerNotesEtudiantParPeriode(const std::string &codeEtudiant, const std::string &periode);
 
+    void afficheEvaluations();
+
     void listerToutesLesEvaluationsGeneralesDeAnnee(string annee);
     void trierEvaluationsGeneralesByAnnee(EvaluationGenerale evaluationsGenerales[], int nbEvaluations, string annee);
     void chargerEvaluationsGeneralesDepuisFichier();
     void sauvegarderEvaluationsGeneralesDansFichier();
+
+    void listerEvaluationsEtudiantPeriode(Etudiant, string);
+    void chargerEvaluationsOfEtudiant(Etudiant, string);
+    void trierEvaluationsEtudiantByPeriode(Evaluation evaluations[], int nbEvaluations, string periode);
+
+    double moyenneEtudiantPeriode(Etudiant etu, string periode);
 
 private:
 };

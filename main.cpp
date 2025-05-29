@@ -11,7 +11,6 @@ int main()
     /*ClasseService clsS = ClasseService();
     MatiereService matS = MatiereService();
     ProfesseurService profS = ProfesseurService();
-    EtudiantService es = EtudiantService();
     EnseignementService ensS = EnseignementService(clsS, matS, profS);*/
     EvaluationService evalS = EvaluationService();
 
@@ -19,15 +18,19 @@ int main()
     cout << endl;
 
     profS.listerToutesLesProfesseursDeClasseEtAnnee(ensS.enseignements, ensS.getNbEnseignements(),"c1", "2024-2025");*/
-    evalS.listerToutesLesEvaluationsGeneralesDeAnnee("2024-2025");
+    //evalS.listerToutesLesEvaluationsGeneralesDeAnnee("2024-2025");
     // es.afficheEtudiants();
     // es.listerEtudiantsAvecMinEvaluations();
     /*ClasseService clsS = ClasseService();
     clsS.addClasseDansFichier(Classe());
     es.sauvegarderEtudiantsDansFichier();*/
-    /*es.chargerEtudiantsDepuisFichier();
-    cout << es.getNbEtudiants() << endl;
+    EtudiantService es = EtudiantService();
+    es.chargerEtudiantsDepuisFichier();
     es.afficheEtudiants();
+
+    evalS.chargerEvaluationsOfEtudiant(*es.searchEtudiantByCode("co3"), "semestre1");
+    evalS.afficheEvaluations();
+    /*cout << es.getNbEtudiants() << endl;
     cout << "Hello world!" << endl;*/
     return 0;
 }

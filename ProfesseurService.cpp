@@ -23,7 +23,7 @@ Professeur *ProfesseurService::searchProfesseurById(string &idProfesseur)
 
 void ProfesseurService::chargerProfesseursDepuisFichier()
 {
-    ifstream fichier("professeurs.txt");
+    ifstream fichier("BD/professeurs.txt");
     nbProfesseurs = 0;
 
     string id, nom, prenom, spec;

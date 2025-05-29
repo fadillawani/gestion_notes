@@ -1,7 +1,7 @@
 #include "Module.h"
 
 Module::Module() {}
-Module::Module(Matiere m, Classe c, int d, float coef)
+Module::Module(Matiere m, Classe c, int d, double coef)
 {
     matiere = m;
     classe = c;
@@ -24,7 +24,7 @@ int Module::getDuree()
     return duree;
 }
 
-float Module::getCoefficient()
+double Module::getCoefficient()
 {
     return coefficient;
 }
@@ -44,7 +44,7 @@ void Module::setDuree(int d)
     duree = d;
 }
 
-void Module::setCoefficient(float coef)
+void Module::setCoefficient(double coef)
 {
     coefficient = coef;
 }

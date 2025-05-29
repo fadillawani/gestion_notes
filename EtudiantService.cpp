@@ -75,7 +75,7 @@ Etudiant *EtudiantService::searchEtudiantByCode(const string &codeEtudiant)
 
 void EtudiantService::addEtudiantDansFichier(Etudiant e)
 {
-    ofstream fichier("etudiants.txt", ios::app);
+    ofstream fichier("BD/etudiants.txt", ios::app);
     fichier << e.getCode() << ";"
             << e.getNom() << ";"
             << e.getPrenom() << ";"
@@ -99,7 +99,7 @@ void EtudiantService::sauvegarderEtudiantsDansFichier()
                 << etudiants[i].getLieuNaissance() << ";"
                 << etudiants[i].getAdresse() << endl;
     }*/
-    ofstream fichier("etudiants.txt");
+    ofstream fichier("BD/etudiants.txt");
     Classe cls = Classe("c1", "GLRS-A", "L2");
     Etudiant e = Etudiant("co3", "Sadjo", "Ousman", "26/10/2007", "Maroua", "Colobane", cls);
         fichier << e.getCode() << ";"
@@ -115,7 +115,7 @@ void EtudiantService::sauvegarderEtudiantsDansFichier()
 
 void EtudiantService::chargerEtudiantsDepuisFichier()
 {
-    ifstream fichier("etudiants.txt");
+    ifstream fichier("BD/etudiants.txt");
     nbEtudiants = 0;
 
     string code, nom, prenom, dateNaiss, lieuNaiss, adresse, clsId;
@@ -146,7 +146,7 @@ void EtudiantService::chargerEtudiantsDepuisFichier()
 
 void EtudiantService::chargerEtudiantsDesClassesDepuisFichier(string idClasses[], int& nbClasses)
 {
-    ifstream fichier("etudiants.txt");
+    ifstream fichier("BD/etudiants.txt");
     nbEtudiants = 0;
 
     string code, nom, prenom, dateNaiss, lieuNaiss, adresse, clsId;
@@ -184,7 +184,7 @@ void EtudiantService::chargerEtudiantsDesClassesDepuisFichier(string idClasses[]
 
 void EtudiantService::chargerIdClassesPassageEvalDepuisFichier(string idClasses[], int& nbIdClasses)
 {
-    ifstream fichier("passageEvals.txt");
+    ifstream fichier("BD/passageEvals.txt");
     int nbPassages = 0;
 
     string id, idClasse, idEval;
@@ -231,3 +231,8 @@ void EtudiantService::listerEtudiantsAvecMinEvaluations()
         cout << etudiants[i].toString() << endl;
     }
 }
+
+/*void EtudiantService::chargerEvaluationsOfEtudiant(string idEtudiant)
+{
+
+}*/

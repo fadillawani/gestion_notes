@@ -21,7 +21,7 @@ Matiere *MatiereService::searchMatiereById(string &idMatiere)
 
 void MatiereService::chargerMatieresDepuisFichier()
 {
-    ifstream fichier("matieres.txt");
+    ifstream fichier("BD/matieres.txt");
     nbMatieres = 0;
 
     string id, libelle;

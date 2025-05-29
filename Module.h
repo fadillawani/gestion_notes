@@ -8,24 +8,29 @@ using namespace std;
 class Module
 {
 private:
+    string id;
     Matiere matiere;
     Classe classe;
     int duree;
-    float coefficient;
+    double coefficient;
+
+    
 
 public:
     Module();
-    Module(Matiere m, Classe c, int d, float coef);
+    Module(Matiere m, Classe c, int d, double coef);
 
+    string getId();
     Matiere getMatiere();
     Classe getClasse();
     int getDuree();
-    float getCoefficient();
+    double getCoefficient();
 
+    void setId(string);
     void setMatiere(Matiere);
     void setClasse(Classe);
     void setDuree(int);
-    void setCoefficient(float);
+    void setCoefficient(double);
 };
 
 #endif

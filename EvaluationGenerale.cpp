@@ -4,14 +4,13 @@ using namespace std;
 
 EvaluationGenerale::EvaluationGenerale() {}
 
-EvaluationGenerale::EvaluationGenerale(string id, Matiere m, string d, string per, string t, float n, string a)
+EvaluationGenerale::EvaluationGenerale(string id, Matiere m, string d, string per, string t, string a)
 {
     this->id = id;
     matiere = m;
     date = d;
     periode = per;
     type = t;
-    note = n;
     annee = a;
 }
 
@@ -38,11 +37,6 @@ string EvaluationGenerale::getPeriode() const
 string EvaluationGenerale::getType() const
 {
     return type;
-}
-
-float EvaluationGenerale::getNote() const
-{
-    return note;
 }
 
 string EvaluationGenerale::getAnnee() const
@@ -73,11 +67,6 @@ void EvaluationGenerale::setPeriode(string per)
 void EvaluationGenerale::setType(string t)
 {
     type = t;
-}
-
-void EvaluationGenerale::setNote(float n)
-{
-    note = n;
 }
 
 void EvaluationGenerale::setAnnee(string a)

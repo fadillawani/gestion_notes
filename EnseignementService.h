@@ -26,6 +26,8 @@ public:
     int getNbEnseignements();
     void setNbEnseignements(int);
 
+    Enseignement *searchEnseignementById(string &idEnseignement);
+
     // Associer un professeur � une mati�re pour une classe et une ann�e acad�mique
     bool ajouterEnseignement(const Enseignement &e);
 
