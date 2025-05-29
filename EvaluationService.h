@@ -2,36 +2,45 @@
 #define EVALUATIONSERVICE_H_INCLUDED
 
 #include <string>
-#include "Evaluation.h" // Doit contenir Etudiant, Matiere, note, date, type, période
+#include "MatiereService.h"
+#include "EvaluationGenerale.h" // Doit contenir Etudiant, Matiere, note, date, type, pï¿½riode
 
-#define MAX_EVALUATIONS 500
+#define MAX_EVALUATIONS_GENERALES 500
 
-class EvaluationService {
+class EvaluationService
+{
 private:
-    Evaluation evaluations[MAX_EVALUATIONS];
-    int nbEvaluations;
+    EvaluationGenerale evaluationsGenerales[MAX_EVALUATIONS_GENERALES];
+    int nbEvaluationsGenerales;
+    MatiereService matiereService;
 
 public:
-    EvaluationService(); // Charge les évaluations depuis le fichier au démarrage
+    EvaluationService();               // Charge les ï¿½valuations depuis le fichier au dï¿½marrage
+    EvaluationService(MatiereService); // Charge les ï¿½valuations depuis le fichier au dï¿½marrage
 
-    // Ajouter une évaluation
-    bool ajouterEvaluation(const Evaluation& eval);
+    // Ajouter une ï¿½valuation
+    bool ajouterEvaluationGenerale(const EvaluationGenerale &eval);
 
-    // Modifier une évaluation (recherche par code étudiant + matière + date)
-    bool modifierEvaluation(const std::string& codeEtudiant, const std::string& idMatiere, const std::string& dateEval, const Evaluation& nouvelleEval);
+    // Modifier une ï¿½valuation (recherche par code ï¿½tudiant + matiï¿½re + date)
+    bool modifierEvaluationGenerale(const std::string &codeEtudiant, const std::string &idMatiere, const std::string &dateEval, const EvaluationGenerale &nouvelleEval);
 
-    // Supprimer une évaluation
-    bool supprimerEvaluation(const std::string& codeEtudiant, const std::string& idMatiere, const std::string& dateEval);
+    // Supprimer une ï¿½valuation
+    bool supprimerEvaluationGenerale(const std::string &codeEtudiant, const std::string &idMatiere, const std::string &dateEval);
 
-    // Lister toutes les évaluations d'une année académique
-    void listerEvaluationsParAnnee(const std::string& annee);
+    EvaluationGenerale *searchEvaluationGeneraleById(string &idEvaluationGenerale);
 
-    // Voir toutes les notes d’un étudiant pour une période donnée (SEMESTRE 1 ou 2)
-    void listerNotesEtudiantParPeriode(const std::string& codeEtudiant, const std::string& periode);
+    // Lister toutes les ï¿½valuations d'une annï¿½e acadï¿½mique
+    void listeEvaluationsGeneralesParAnnee(const std::string &annee);
+
+    // Voir toutes les notes dï¿½un ï¿½tudiant pour une pï¿½riode donnï¿½e (SEMESTRE 1 ou 2)
+    void listerNotesEtudiantParPeriode(const std::string &codeEtudiant, const std::string &periode);
+
+    void listerToutesLesEvaluationsGeneralesDeAnnee(string annee);
+    void trierEvaluationsGeneralesByAnnee(EvaluationGenerale evaluationsGenerales[], int nbEvaluations, string annee);
+    void chargerEvaluationsGeneralesDepuisFichier();
+    void sauvegarderEvaluationsGeneralesDansFichier();
 
 private:
-    void chargerEvaluationsDepuisFichier();
-    void sauvegarderEvaluationsDansFichier();
 };
 
 #endif // EVALUATIONSERVICE_H_INCLUDED

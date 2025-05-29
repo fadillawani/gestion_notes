@@ -9,7 +9,7 @@ PassageEvaluation::PassageEvaluation()
 
 }
 
-PassageEvaluation::PassageEvaluation(string id, Classe cls, Evaluation eval)
+PassageEvaluation::PassageEvaluation(string id, Classe cls, EvaluationGenerale eval)
 {
     this->id = id;
     classe = cls;
@@ -26,7 +26,7 @@ Classe PassageEvaluation::getClasse()
     return classe;
 }
 
-Evaluation PassageEvaluation::getEvaluation()
+EvaluationGenerale PassageEvaluation::getEvaluation()
 {
     return evaluation;
 }
@@ -41,7 +41,32 @@ void PassageEvaluation::setClasse(Classe cls)
     classe = cls;
 }
 
-void PassageEvaluation::setEvaluation(Evaluation eval)
+void PassageEvaluation::setEvaluation(EvaluationGenerale eval)
 {
     evaluation = eval;
 }
+
+/*void EvaluationService::chargerPassageEvaluationsDeClasseDepuisFichier(string idClasse)
+{
+    ifstream fichier("passageEvals.txt");
+    nbEvaluationsGenerales = 0;
+
+    string id, clsId, evalId;
+    EvaluationGenerale mat;
+    while (getline(fichier, id, ';') &&
+           getline(fichier, clsId, ';') &&
+           getline(fichier, evalId, '\n'))
+    {
+        EvaluationGenerale eval;
+        eval.setId(id);
+        eval.setMatiere(*matiereService.searchMatiereById(matiereId));
+        eval.setDate(date);
+        eval.setPeriode(periode);
+        eval.setType(type);
+        eval.setAnnee(annee);
+
+        evaluationsGenerales[nbEvaluationsGenerales++] = eval;
+    }
+
+    fichier.close();
+}*/

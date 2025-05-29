@@ -2,7 +2,7 @@
 #define CLASSESERVICE_H_INCLUDED
 
 #include "Classe.h"
-#include "Evaluation.h"
+#include "EvaluationGenerale.h"
 #include "Matiere.h"
 
 #include <string>

@@ -5,13 +5,13 @@
 #include "ClasseService.h"
 #include "MatiereService.h"
 #include "ProfesseurService.h"
-#include "Enseignement.h" // Doit contenir : classe, matière, professeur, année, volumeHoraire, coefficient
+#include "Enseignement.h" // Doit contenir : classe, matiï¿½re, professeur, annï¿½e, volumeHoraire, coefficient
 
 #define MAX_ENSEIGNEMENTS 100
 
-class EnseignementService {
+class EnseignementService
+{
 private:
-
     int nbEnseignements;
     ClasseService classeService;
     MatiereService matiereService;
@@ -19,24 +19,25 @@ private:
 
 public:
     Enseignement enseignements[MAX_ENSEIGNEMENTS];
-    EnseignementService(); // Charge les données au démarrage
+    EnseignementService(); // Charge les donnï¿½es au dï¿½marrage
     EnseignementService(ClasseService, MatiereService, ProfesseurService);
     void afficheEnseignements();
 
     int getNbEnseignements();
     void setNbEnseignements(int);
 
-    // Associer un professeur à une matière pour une classe et une année académique
-    bool ajouterEnseignement(const Enseignement& e);
+    // Associer un professeur ï¿½ une matiï¿½re pour une classe et une annï¿½e acadï¿½mique
+    bool ajouterEnseignement(const Enseignement &e);
 
-    // Afficher le corps professoral d’une classe pour une année donnée
-    void afficherCorpsProfessoral(const std::string& nomClasse, const std::string& annee);
+    // Afficher le corps professoral dï¿½une classe pour une annï¿½e donnï¿½e
+    void afficherCorpsProfessoral(const std::string &nomClasse, const std::string &annee);
 
-    // Optionnel : afficher tous les enseignements (utile pour débogage ou administration)
+    // Optionnel : afficher tous les enseignements (utile pour dï¿½bogage ou administration)
     void listerTousLesEnseignements();
     void listerTousLesEnseignementsDeClasse(string idClasse, string annee);
 
     void chargerEnseignementsDepuisFichierDeClasseEtAnnee(string idClasse, string annee);
+    
 
 private:
     void chargerEnseignementsDepuisFichier();

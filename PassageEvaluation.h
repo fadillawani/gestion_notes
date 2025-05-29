@@ -2,7 +2,7 @@
 #define PASSAGEEVALUATION_H_INCLUDED
 #include <string>
 #include "Classe.h"
-#include "Evaluation.h"
+#include "EvaluationGenerale.h"
 using namespace std;
 
 class PassageEvaluation
@@ -10,18 +10,20 @@ class PassageEvaluation
 private:
     string id;
     Classe classe;
-    Evaluation evaluation;
+    EvaluationGenerale evaluation;
+
 public:
     PassageEvaluation();
-    PassageEvaluation(string, Classe, Evaluation);
+    PassageEvaluation(string, Classe, EvaluationGenerale);
 
     string getId();
     Classe getClasse();
-    Evaluation getEvaluation();
+    EvaluationGenerale getEvaluation();
 
     void setId(string);
     void setClasse(Classe);
-    void setEvaluation(Evaluation);
+    void setEvaluation(EvaluationGenerale);
+    
 };
 
 #endif // PASSAGEEVALUATION_H_INCLUDED
