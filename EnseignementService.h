@@ -8,6 +8,7 @@
 #include "Enseignement.h" // Doit contenir : classe, mati�re, professeur, ann�e, volumeHoraire, coefficient
 
 #define MAX_ENSEIGNEMENTS 100
+using namespace std;
 
 class EnseignementService
 {
@@ -28,6 +29,8 @@ public:
 
     Enseignement *searchEnseignementById(string &idEnseignement);
 
+    void addEnseignementDansFichier(Enseignement);
+
     // Associer un professeur � une mati�re pour une classe et une ann�e acad�mique
     bool ajouterEnseignement(const Enseignement &e);
 
@@ -39,10 +42,10 @@ public:
     void listerTousLesEnseignementsDeClasse(string idClasse, string annee);
 
     void chargerEnseignementsDepuisFichierDeClasseEtAnnee(string idClasse, string annee);
-    
+
+    void chargerEnseignementsDepuisFichier();
 
 private:
-    void chargerEnseignementsDepuisFichier();
     void sauvegarderEnseignementsDansFichier();
 };
 

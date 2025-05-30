@@ -18,6 +18,8 @@ private:
 public:
     ProfesseurService();
 
+    void addProfesseurDansFichier(Professeur);
+
     bool ajouterProfesseur(const Professeur &professeur);
     bool modifierProfesseur(const std::string &idProfesseur, const Professeur &nouvelleProfesseur);
     bool supprimerProfesseur(const std::string &idProfesseur);

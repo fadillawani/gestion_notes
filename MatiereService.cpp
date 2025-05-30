@@ -6,6 +6,15 @@ MatiereService::MatiereService()
 
 }
 
+void MatiereService::addMatiereDansFichier(Matiere mat)
+{
+    ofstream fichier("BD/matieres.txt", ios::app);
+    fichier << mat.getId() << ";"
+            << mat.getLibelle() << endl;
+
+    fichier.close();
+}
+
 Matiere *MatiereService::searchMatiereById(string &idMatiere)
 {
     chargerMatieresDepuisFichier();

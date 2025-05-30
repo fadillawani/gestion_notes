@@ -20,6 +20,7 @@ public:
     ModuleService();
     ModuleService(MatiereService, ClasseService);
 
+    void addModuleDansFichier(Module);
     bool ajouterModule(const Module& module);
     void listerModulesParClasseEtAnnee(const std::string& nomClasse, const std::string& anneeAcademique);
     Module *searchModuleById(string &idModule);

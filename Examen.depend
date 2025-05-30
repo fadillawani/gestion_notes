@@ -66,13 +66,15 @@
 1748115409 source:c:\users\acer\onedrive\bureau\cours s4\c++\examen\src\professeur.cpp
 	"Professeur.h"
 
-1748551782 source:d:\licence\licence 2\semestre 2\c++\gestion_notes-main\gestion_notes-main\main.cpp
+1748592357 source:d:\licence\licence 2\semestre 2\c++\gestion_notes-main\gestion_notes-main\main.cpp
 	<iostream>
 	"EtudiantService.h"
 	"EnseignementService.h"
+	"EtudiantService.h"
 	"EvaluationService.h"
 	"ClasseService.h"
 	"Classe.h"
+	"menu.h"
 
 1748132169 source:d:\licence\licence 2\semestre 2\c++\gestion_notes-main\gestion_notes-main\bulletin.cpp
 	"Bulletin.h"
@@ -92,11 +94,11 @@
 1748268455 d:\licence\licence 2\semestre 2\c++\gestion_notes-main\gestion_notes-main\classe.h
 	<string>
 
-1748302959 source:d:\licence\licence 2\semestre 2\c++\gestion_notes-main\gestion_notes-main\enseignement.cpp
+1748591553 source:d:\licence\licence 2\semestre 2\c++\gestion_notes-main\gestion_notes-main\enseignement.cpp
 	"Enseignement.h"
 	"Matiere.h"
 
-1748546483 d:\licence\licence 2\semestre 2\c++\gestion_notes-main\gestion_notes-main\enseignement.h
+1748583759 d:\licence\licence 2\semestre 2\c++\gestion_notes-main\gestion_notes-main\enseignement.h
 	<string>
 	"Classe.h"
 	"Matiere.h"
@@ -187,29 +189,29 @@
 	"Classe.h"
 	"EvaluationGenerale.h"
 
-1748519858 source:d:\licence\licence 2\semestre 2\c++\gestion_notes-main\gestion_notes-main\matiereservice.cpp
+1748582408 source:d:\licence\licence 2\semestre 2\c++\gestion_notes-main\gestion_notes-main\matiereservice.cpp
 	"MatiereService.h"
 	<fstream>
 	<iostream>
 
-1748300775 d:\licence\licence 2\semestre 2\c++\gestion_notes-main\gestion_notes-main\matiereservice.h
+1748584308 d:\licence\licence 2\semestre 2\c++\gestion_notes-main\gestion_notes-main\matiereservice.h
 	<string>
 	"Matiere.h"
 
-1748519873 source:d:\licence\licence 2\semestre 2\c++\gestion_notes-main\gestion_notes-main\professeurservice.cpp
+1748581820 source:d:\licence\licence 2\semestre 2\c++\gestion_notes-main\gestion_notes-main\professeurservice.cpp
 	"ProfesseurService.h"
 	"Professeur.h"
 	<fstream>
 	<iostream>
 	<set>
 
-1748307337 d:\licence\licence 2\semestre 2\c++\gestion_notes-main\gestion_notes-main\professeurservice.h
+1748581844 d:\licence\licence 2\semestre 2\c++\gestion_notes-main\gestion_notes-main\professeurservice.h
 	<string>
 	<set>
 	"Professeur.h"
 	"Enseignement.h"
 
-1748534364 source:d:\licence\licence 2\semestre 2\c++\gestion_notes-main\gestion_notes-main\enseignementservice.cpp
+1748591528 source:d:\licence\licence 2\semestre 2\c++\gestion_notes-main\gestion_notes-main\enseignementservice.cpp
 	"EnseignementService.h"
 	"ClasseService.h"
 	"ProfesseurService.h"
@@ -217,7 +219,7 @@
 	<fstream>
 	<iostream>
 
-1748546701 d:\licence\licence 2\semestre 2\c++\gestion_notes-main\gestion_notes-main\enseignementservice.h
+1748590140 d:\licence\licence 2\semestre 2\c++\gestion_notes-main\gestion_notes-main\enseignementservice.h
 	<string>
 	"ClasseService.h"
 	"MatiereService.h"
@@ -233,7 +235,7 @@
 	"EvaluationGenerale.h"
 	"Note.h"
 
-1748552382 source:d:\licence\licence 2\semestre 2\c++\gestion_notes-main\gestion_notes-main\evaluationservice.cpp
+1748592183 source:d:\licence\licence 2\semestre 2\c++\gestion_notes-main\gestion_notes-main\evaluationservice.cpp
 	"EvaluationService.h"
 	"EvaluationGenerale.h"
 	"Evaluation.h"
@@ -242,7 +244,7 @@
 	<iostream>
 	<set>
 
-1748552180 d:\licence\licence 2\semestre 2\c++\gestion_notes-main\gestion_notes-main\evaluationservice.h
+1748589957 d:\licence\licence 2\semestre 2\c++\gestion_notes-main\gestion_notes-main\evaluationservice.h
 	<string>
 	"MatiereService.h"
 	"EnseignementService.h"
@@ -250,14 +252,53 @@
 	"Evaluation.h"
 	"EvaluationGenerale.h"
 
-1748548063 d:\licence\licence 2\semestre 2\c++\gestion_notes-main\gestion_notes-main\moduleservice.h
+1748582556 d:\licence\licence 2\semestre 2\c++\gestion_notes-main\gestion_notes-main\moduleservice.h
 	<string>
 	"Module.h"
 	"MatiereService.h"
 	"ClasseService.h"
 
-1748548082 source:d:\licence\licence 2\semestre 2\c++\gestion_notes-main\gestion_notes-main\moduleservice.cpp
+1748582698 source:d:\licence\licence 2\semestre 2\c++\gestion_notes-main\gestion_notes-main\moduleservice.cpp
 	"ModuleService.h"
 	<fstream>
 	<iostream>
+
+1748594633 source:d:\licence\licence 2\semestre 2\c++\gestion_notes-main\gestion_notes-main\view.cpp
+	"View.h"
+	"Etudiant.h"
+	"Professeur.h"
+	"Evaluation.h"
+	"Matiere.h"
+	<iostream>
+
+1748594371 d:\licence\licence 2\semestre 2\c++\gestion_notes-main\gestion_notes-main\view.h
+	"Etudiant.h"
+	"Professeur.h"
+	"Matiere.h"
+	"Enseignement.h"
+	"ClasseService.h"
+	"ProfesseurService.h"
+	"MatiereService.h"
+	"EvaluationService.h"
+	"Classe.h"
+	"Module.h"
+
+1748594526 source:d:\licence\licence 2\semestre 2\c++\gestion_notes-main\gestion_notes-main\menu.cpp
+	<iostream>
+	<stdlib.h>
+	"Menu.h"
+	"View.h"
+	"Etudiant.h"
+	"EtudiantService.h"
+	"EvaluationService.h"
+
+1748589600 d:\licence\licence 2\semestre 2\c++\gestion_notes-main\gestion_notes-main\menu.h
+	"EtudiantService.h"
+	"MatiereService.h"
+	"ModuleService.h"
+	"EnseignementService.h"
+	"ProfesseurService.h"
+	"EvaluationService.h"
+	"ClasseService.h"
+	"View.h"
 

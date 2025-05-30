@@ -16,6 +16,20 @@ EnseignementService::EnseignementService(ClasseService clsS, MatiereService matS
     professeurService = profS;
 }
 
+void EnseignementService::addEnseignementDansFichier(Enseignement ens)
+{
+    ofstream fichier("BD/enseignements.txt", ios::app);
+    fichier << ens.getId() << ";"
+            << ens.getClasse().getId() << ";"
+            << ens.getMatiere().getId() << ";"
+            << ens.getVolumeHoraire() << ";"
+            << ens.getCoefficient() << ";"
+            << ens.getProfesseur().getId() << ";"
+            << ens.getAnnee() << endl;
+
+    fichier.close();
+}
+
 int EnseignementService::getNbEnseignements()
 {
     return nbEnseignements;

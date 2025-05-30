@@ -25,6 +25,19 @@ void EvaluationService::afficheEvaluations()
     }
 }
 
+void EvaluationService::addEvaluationGeneraleDansFichier(EvaluationGenerale e)
+{
+    ofstream fichier("BD/evaluationsGenerales.txt", ios::app);
+    fichier << e.getId() << ";"
+            << e.getMatiere().getId() << ";"
+            << e.getDate() << ";"
+            << e.getPeriode() << ";"
+            << e.getType() << ";"
+            << e.getAnnee() << endl;
+
+    fichier.close();
+}
+
 EvaluationGenerale *EvaluationService::searchEvaluationGeneraleById(string &idEvaluationGenerale)
 {
     chargerEvaluationsGeneralesDepuisFichier();
@@ -140,19 +153,23 @@ void EvaluationService::trierEvaluationsEtudiantByPeriode(string periode)
     Evaluation evals[nbEvaluations];
     for (int i = 0; i < nbEvaluations; ++i)
     {
-        if (evaluations[i].getPeriode() == periode)
+        if (periode == "annee")
+        {
+            evaluations[i] = evaluations[i];
+            nbNewEvals++;
+        }
+        else if (evaluations[i].getPeriode() == periode)
         {
             evals[nbNewEvals] = evaluations[i];
             nbNewEvals++;
         }
     }
     nbEvaluations = nbNewEvals;
-    for(int i = 0; i < nbEvaluations; i++)
+    for (int i = 0; i < nbEvaluations; i++)
     {
         evaluations[i] = evals[i];
     }
-    //evaluations = evals;
-    
+    // evaluations = evals;
 }
 
 void EvaluationService::listerEvaluationsEtudiantPeriode(Etudiant etu, string periode)
@@ -185,4 +202,7 @@ double EvaluationService::moyenneEtudiantPeriode(Etudiant etu, string periode)
     return sumNotexCoef / sumCoef;
 }
 
-void listerEvaluationsGeneralesParAnnee(const std::string &annee);
+void EvaluationService::listerNotesEtudiantParPeriode(string codeEtudiant, string periode)
+{
+    cout << "febh";
+}

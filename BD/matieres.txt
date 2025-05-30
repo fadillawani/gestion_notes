@@ -1,3 +1,3 @@
 m1;maths
 m2;anglais
-m3;chimie
+m3;chimiety;physique

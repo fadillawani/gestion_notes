@@ -8,6 +8,17 @@ ProfesseurService::ProfesseurService()
 {
 }
 
+void ProfesseurService::addProfesseurDansFichier(Professeur prof)
+{
+    ofstream fichier("BD/professeurs.txt", ios::app);
+    fichier << prof.getId() << ";"
+            << prof.getNom() << ";"
+            << prof.getPrenom() << ";"
+            << prof.getSpec() << endl;
+
+    fichier.close();
+}
+
 Professeur *ProfesseurService::searchProfesseurById(string &idProfesseur)
 {
     chargerProfesseursDepuisFichier();

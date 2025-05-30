@@ -1,19 +1,25 @@
 #include <iostream>
 #include "EtudiantService.h"
 #include "EnseignementService.h"
+#include "EtudiantService.h"
 #include "EvaluationService.h"
 #include "ClasseService.h"
 #include "Classe.h"
+#include "menu.h"
 using namespace std;
 
 int main()
 {
-    /*ClasseService clsS = ClasseService();
+
+    ClasseService clsS = ClasseService();
     MatiereService matS = MatiereService();
     ProfesseurService profS = ProfesseurService();
-    EnseignementService ensS = EnseignementService(clsS, matS, profS);*/
+    EnseignementService ensS = EnseignementService(clsS, matS, profS);
     EvaluationService evalS = EvaluationService();
+    EtudiantService etuS = EtudiantService(clsS);
+    Menu menu = Menu(etuS);
 
+    menu.menuPrincipal();
     /*ensS.listerTousLesEnseignementsDeClasse("c1", "2024-2025");
     cout << endl;
 
@@ -24,12 +30,12 @@ int main()
     /*ClasseService clsS = ClasseService();
     clsS.addClasseDansFichier(Classe());
     es.sauvegarderEtudiantsDansFichier();*/
-    EtudiantService es = EtudiantService();
+    /*EtudiantService es = EtudiantService();
     es.chargerEtudiantsDepuisFichier();
-    es.afficheEtudiants();
+    es.afficheEtudiants();*/
 
     //evalS.chargerEvaluationsOfEtudiant(*es.searchEtudiantByCode("co3"), "semestre2");
-    evalS.listerEvaluationsEtudiantPeriode(*es.searchEtudiantByCode("co3"), "semestre2");
+    //evalS.listerEvaluationsEtudiantPeriode(*es.searchEtudiantByCode("co3"), "semestre2");
     //evalS.afficheEvaluations();
     /*cout << es.getNbEtudiants() << endl;
     cout << "Hello world!" << endl;*/

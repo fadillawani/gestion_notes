@@ -2,14 +2,20 @@
 #include "Matiere.h"
 using namespace std;
 Enseignement::Enseignement() {}
-Enseignement::Enseignement(Classe c, Matiere m, int vh, double coef, Professeur p, string an)
+Enseignement::Enseignement(string i, Classe c, Matiere m, int vh, double coef, Professeur p, string an)
 {
+    id = i;
     classe = c;
     matiere = m;
     volumeHoraire = vh;
     coefficient = coef;
     professeur = p;
     annee = an;
+}
+
+string Enseignement::getId()
+{
+    return id;
 }
 
 Classe Enseignement::getClasse() const

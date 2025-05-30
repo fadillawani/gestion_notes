@@ -20,7 +20,7 @@ private:
 
 public:
     Enseignement();
-    Enseignement(Classe c, Matiere m, int vh, double coef, Professeur p, string an);
+    Enseignement(string, Classe c, Matiere m, int vh, double coef, Professeur p, string an);
 
     string getId();
     Classe getClasse() const;

@@ -7,6 +7,7 @@
 #include "ModuleService.h"
 #include "Evaluation.h"
 #include "EvaluationGenerale.h" // Doit contenir Etudiant, Matiere, note, date, type, p�riode
+using namespace std;
 
 #define MAX_EVALUATIONS_GENERALES 500
 
@@ -24,11 +25,13 @@ private:
     ModuleService moduleService;
 
 public:
-    EvaluationService();               // Charge les �valuations depuis le fichier au d�marrage
+    EvaluationService();                                                   // Charge les �valuations depuis le fichier au d�marrage
     EvaluationService(MatiereService, EnseignementService, ModuleService); // Charge les �valuations depuis le fichier au d�marrage
 
     // Ajouter une �valuation
     bool ajouterEvaluationGenerale(const EvaluationGenerale &eval);
+
+    void addEvaluationGeneraleDansFichier(EvaluationGenerale);
 
     // Modifier une �valuation (recherche par code �tudiant + mati�re + date)
     bool modifierEvaluationGenerale(const std::string &codeEtudiant, const std::string &idMatiere, const std::string &dateEval, const EvaluationGenerale &nouvelleEval);
@@ -42,7 +45,7 @@ public:
     void listeEvaluationsGeneralesParAnnee(const std::string &annee);
 
     // Voir toutes les notes d�un �tudiant pour une p�riode donn�e (SEMESTRE 1 ou 2)
-    void listerNotesEtudiantParPeriode(const std::string &codeEtudiant, const std::string &periode);
+    void listerNotesEtudiantParPeriode(string codeEtudiant, string periode);
 
     void afficheEvaluations();
 

@@ -1,3 +1,7 @@
 co3;Sadjo;Ousman;26/10/2007;Maroua;Colobane;c1
 co4;Lawani;Fadil;26/10/2007;Maroua;Colobane;c2
 co5;DACKEY;Izak;26/10/2007;Maroua;Colobane;c3
+op;Sadjo;Ousman;26/10/2007;Maroua;Colo;c1
+xs;cd;cz;czcz;cz;cz;c1
+jn;nj;j;jnjnj;ini;okok;c1
+unu;unh;jnjn;jnj;jnj;jn;c1

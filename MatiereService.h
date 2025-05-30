@@ -15,6 +15,7 @@ private:
 public:
     MatiereService();
 
+    void addMatiereDansFichier(Matiere);
     bool ajouterMatiere(const Matiere &matiere);
     bool modifierMatiere(const std::string &idMatiere, const Matiere &nouvelleMatiere);
     bool supprimerMatiere(const std::string &idMatiere);

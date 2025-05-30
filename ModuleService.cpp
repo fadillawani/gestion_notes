@@ -6,6 +6,18 @@ ModuleService::ModuleService()
 {
 }
 
+void ModuleService::addModuleDansFichier(Module module)
+{
+    ofstream fichier("BD/modules.txt", ios::app);
+    fichier << module.getId() << ";"
+            << module.getMatiere().getId() << ";"
+            << module.getClasse().getId() << ";"
+            << module.getCoefficient() << ";"
+            << module.getDuree() << endl;
+
+    fichier.close();
+}
+
 Module *ModuleService::searchModuleById(string &idModule)
 {
     chargerModulesDepuisFichier();
